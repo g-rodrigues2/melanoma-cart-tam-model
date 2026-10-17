@@ -1,4 +1,4 @@
-# Melanoma dynamics with TAM-mediated immunosuppression and CAR T-cell therapy
+# Mathematical modeling of melanoma dynamics with TAM-mediated immunosuppression and CAR T-cell therapy
 
 Code and data for **Chapter 3** of the thesis. The chapter studies the model
 
