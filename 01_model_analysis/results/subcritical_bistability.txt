@@ -1,0 +1,67 @@
+==============================================================================
+DYNAMICAL TEST OF THE SUBCRITICAL HOPF (alpha_1 = 0.69, mu_3 = 0)
+==============================================================================
+
+kappa_3 = 0.145 day^-1
+  beta_1*          = 1.885618e-10 cells^-1
+  omega            = 0.283687 day^-1,  period 2pi/omega = 22.15 days
+  l1               = +1.0473e-18 cells^-2  (+1.0473 in units of K1)
+  Re g21           = +5.9420e-19
+  dRe lambda/dbeta_1 = 7.2888e+06 cells
+  prediction       = SUBcritical
+
+kappa_3 = 0.350 day^-1
+  beta_1*          = 5.905605e-11 cells^-1
+  omega            = 0.387985 day^-1,  period 2pi/omega = 16.19 days
+  l1               = -1.2146e-19 cells^-2  (-0.1215 in units of K1)
+  Re g21           = -9.4251e-20
+  dRe lambda/dbeta_1 = 7.3372e+07 cells
+  prediction       = supercritical
+
+------------------------------------------------------------------------------
+T1  l1 against the independent implementation of stability_maps_and_hopf_boundary.py
+    kappa_3=0.145:  here +1.047288   there +1.047285   relative error 2.27e-06
+    kappa_3=0.350:  here -0.121462   there -0.121462   relative error 1.81e-06
+
+------------------------------------------------------------------------------
+T2  periodic orbit BELOW the threshold at kappa_3 = 0.145 (prediction: it exists and is UNSTABLE)
+
+      eps   measured excursion  predicted excursion  ratio   nontrivial |mu|      residual
+     0.200  2.3379e+06      1.7172e+06      1.361   0.2913, 1.0120   3.0e-11
+     0.100  1.4561e+06      1.2142e+06      1.199   0.3251, 1.0061   5.8e-11
+     0.050  9.6210e+05      8.5860e+05      1.121   0.3403, 1.0030   1.9e-14
+     0.020  5.7938e+05      5.4303e+05      1.067   0.3490, 1.0012   3.2e-14
+     0.010  4.0103e+05      3.8398e+05      1.044   0.3518, 1.0006   1.5e-14
+     0.005  2.7976e+05      2.7151e+05      1.030   0.3532, 1.0003   5.5e-15
+
+    trivial multiplier (must be 1): 1.00000062
+    every orbit unstable (max |mu| > 1): True
+    measured/predicted ratio -> 1 as eps -> 0: 1.361 em eps=0.200 e 1.030 em eps=0.005
+    deviation of the ratio from 1, against eps:
+      eps=0.200: +0.3615   eps=0.100: +0.1992   eps=0.050: +0.1205   eps=0.020: +0.0669   eps=0.010: +0.0444   eps=0.005: +0.0304
+    fit deviation ~ eps^a:  a = 0.66  (monotone deviation, tending to zero)
+
+------------------------------------------------------------------------------
+T3  control at kappa_3 = 0.35 (l1 < 0): there should be no orbit below the threshold
+    seed from the same formula, amplitude 6.987e+06
+    Newton returns an orbit of amplitude 3.550e-01 cells (2.79e-06% of T*), residual 8.5e-11
+    negligible amplitude => it collapsed onto the equilibrium, there is no cycle: True
+
+------------------------------------------------------------------------------
+T4  bistability by direct integration, beta_1 = 0.95 beta_1* (E* stable in both cases)
+
+    kappa_3 = 0.145  (l1 > 0),  Q = +1.14e-05 > 0,  escala 1/|rho| = 14552 dias,  horizonte 873109 dias
+      reference (predicted amplitude of the unstable orbit) = 8.586e+05 cells
+      perturbation  0.5x (4.293e+05 cells):  final amplitude / T* =    0.0000   volta a E*
+      perturbation  1.0x (8.586e+05 cells):  final amplitude / T* =    0.0000   volta a E*
+      perturbation  2.0x (1.717e+06 cells):  final amplitude / T* =   44.3006   ESCAPA
+      perturbation  5.0x (4.293e+06 cells):  final amplitude / T* =   44.3029   ESCAPA
+
+    kappa_3 = 0.350  (l1 < 0),  Q = +4.50e-04 > 0,  escala 1/|rho| = 4616 dias,  horizonte 276939 dias
+      reference (predicted amplitude of the unstable orbit) = 6.987e+06 cells
+      perturbation  0.5x (3.494e+06 cells):  final amplitude / T* =    0.0000   volta a E*
+      perturbation  1.0x (6.987e+06 cells):  final amplitude / T* =    0.0000   volta a E*
+      perturbation  2.0x (1.397e+07 cells):  final amplitude / T* =    0.0000   volta a E*
+      perturbation  5.0x (3.494e+07 cells):  final amplitude / T* =    0.0000   volta a E*
+
+==============================================================================

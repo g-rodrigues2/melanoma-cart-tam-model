@@ -1,0 +1,7 @@
+panel,site,car_construct,day_after_administration,n_mice,vcn_mean,vcn_sd
+6b,tumor,20D7SL-28z,5,10,0.1326,0.04918
+6b,tumor,20D7SL-28z,13,10,0.05268,0.02302
+6b,tumor,20D7SL-28z,27,9,0.01866,0.01191
+6c,spleen,20D7SL-28z,5,10,0.2354,0.05711
+6c,spleen,20D7SL-28z,13,10,0.0568,0.04791
+6c,spleen,20D7SL-28z,27,10,0.03697,0.01541

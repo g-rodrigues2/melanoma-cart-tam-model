@@ -1,0 +1,75 @@
+Global structural identifiability of the T-M-C model and of its T-M submodel
+==========================================================================
+Observable:  y(t) = T(t), the tumor volume.
+Produced by: julia structural_id.jl  and  julia structural_id_pipeline.jl
+             (both activate the pinned environment of this directory).
+Package:     StructuralIdentifiability.jl v0.5.25
+Julia:       1.12.6
+Threshold:   default correctness probability of assess_identifiability, 0.99.
+Date:        2026-10-16
+Verdicts:    globally = globally identifiable, nonidentifiable = not identifiable
+             even locally. These are the four runs reported in Section 3.4 of the thesis.
+
+### structural_id.jl ###
+============================================================
+(A) FULL T-M-C MODEL  |  y = T
+============================================================
+   T(t)  =>  globally
+   M(t)  =>  nonidentifiable
+   C(t)  =>  nonidentifiable
+   K1  =>  globally
+   K2  =>  nonidentifiable
+   K3  =>  globally
+   a1  =>  globally
+   a2  =>  globally
+   a3  =>  globally
+   b1  =>  nonidentifiable
+   k2  =>  globally
+   k3  =>  globally
+   u1  =>  nonidentifiable
+   u3  =>  globally
+
+============================================================
+(C) T-M SUBSYSTEM (_mac, no CAR T-cells)  |  y = T
+============================================================
+   T(t)  =>  globally
+   M(t)  =>  nonidentifiable
+   K1  =>  globally
+   K2  =>  nonidentifiable
+   a1  =>  globally
+   a2  =>  globally
+   b1  =>  nonidentifiable
+   k2  =>  globally
+
+DONE
+
+### structural_id_pipeline.jl ###
+============================================================
+CALIBRATED CONFIGURATION: a2=0.1, K2=1000, k2=0.34 known | y = T
+============================================================
+   T(t)  =>  globally
+   M(t)  =>  globally
+   C(t)  =>  nonidentifiable
+   K1  =>  globally
+   K3  =>  globally
+   a1  =>  globally
+   a3  =>  globally
+   b1  =>  globally
+   k3  =>  globally
+   u1  =>  nonidentifiable
+   u3  =>  globally
+
+--- same, with C(0)=1 also known (known_ic) ---
+   T(0)  =>  globally
+   M(0)  =>  globally
+   C(0)  =>  globally
+   K1  =>  globally
+   K3  =>  globally
+   a1  =>  globally
+   a3  =>  globally
+   b1  =>  globally
+   k3  =>  globally
+   u1  =>  globally
+   u3  =>  globally
+
+DONE

@@ -1,0 +1,12 @@
+beta1_star 5.905605009617e-11
+omega 0.387985086759
+g21_real -9.425084072605e-20
+l1 -1.214619375107e-19
+criticality supercritical
+test_B_rel 4.414e-08
+test_C_rel 1.759e-06
+res_h11 3.231e-27
+res_h20 1.828e-26
+dist_0_spectrum 0.387985
+dist_2iw_spectrum 0.387985
+normal_form_worst_rel 3.446e-16

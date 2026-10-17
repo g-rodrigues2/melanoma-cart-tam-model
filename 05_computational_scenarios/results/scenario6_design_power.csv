@@ -1,0 +1,4 @@
+design,n_points,P_correct_beta1_0,P_correct_beta1_star,P_correct_mean
+"six time points (0, 30, 60, 90, 150, 300 days)",6,0.99745,0.9989,0.998175
+"weekly, days 0-300 (43 points)",43,1.0,1.0,1.0
+"every 3 days, days 200-300 (34 points)",34,1.0,1.0,1.0

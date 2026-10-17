@@ -1,0 +1,16 @@
+numpy>=1.26
+scipy>=1.11
+matplotlib>=3.8
+pandas>=2.1
+emcee>=3.1
+h5py>=3.10
+numba>=0.59
+corner>=2.2
+seaborn>=0.13
+tqdm>=4.66
+SALib>=1.4
+sympy>=1.12
+openpyxl>=3.1
+pytest>=8.0
+arviz>=0.23,<1.0
+mpmath>=1.3

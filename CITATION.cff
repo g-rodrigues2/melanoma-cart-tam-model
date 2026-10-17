@@ -1,0 +1,63 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite the deposit below, the thesis, and the article in the references."
+title: "Melanoma under CAR T-cell therapy with TAM-mediated immunosuppression: model analysis, Bayesian calibration and identifiability (code and data)"
+type: software
+license: MIT
+authors:
+  - family-names: Rodrigues
+    given-names: Guilherme
+    affiliation: "São Paulo State University (UNESP), Institute of Biosciences, Botucatu"
+abstract: >-
+  Code and data of Chapter 3 of the doctoral thesis: a three-population ordinary differential equation
+  model of cutaneous melanoma under CAR T-cell therapy with tumor-associated macrophages, its equilibria
+  and local stability, the Hopf bifurcation driven by the pro-tumoral action of the macrophages, a
+  variance-based global sensitivity analysis, the Bayesian calibration against the immunocompetent B16
+  data of Jilani et al. (2024), the structural and practical identifiability analyses, and the
+  computational scenarios built on them.
+keywords:
+  - mathematical oncology
+  - CAR T-cell therapy
+  - melanoma
+  - tumor-associated macrophages
+  - Bayesian calibration
+  - parameter identifiability
+  - Hopf bifurcation
+  - global sensitivity analysis
+preferred-citation:
+  type: thesis
+  title: "Mathematical models to describe tumoral behaviors under treatment regimens"
+  authors:
+    - family-names: Rodrigues
+      given-names: Guilherme
+  thesis-type: "PhD thesis"
+  institution:
+    name: "São Paulo State University (UNESP), Graduate Program in Biometrics"
+    city: Botucatu
+    country: BR
+  year: 2026
+references:
+  - type: article
+    title: "A mathematical model to the melanoma dynamics involving CAR T-cells"
+    authors:
+      - family-names: Rodrigues
+        given-names: G.
+      - family-names: Silva
+        given-names: J. G.
+      - family-names: Adimy
+        given-names: M.
+      - family-names: Mancera
+        given-names: P. F. A.
+    journal: "Computational and Applied Mathematics"
+    volume: 44
+    start: 101
+    year: 2025
+  - type: article
+    title: "CAR-T cell therapy targeting surface expression of TYRP1 to treat cutaneous and rare melanoma subtypes"
+    authors:
+      - family-names: Jilani
+        given-names: S.
+    journal: "Nature Communications"
+    volume: 15
+    start: 1244
+    year: 2024
+    doi: 10.1038/s41467-024-45221-2

@@ -1,0 +1,15 @@
+This folder holds the outputs of the treatment calibration that the thesis reports.
+
+  - model_selection_table.csv  BIC table of Chapter 3 (16 empirical killing terms plus the mechanistic
+                               _mac and _mac_treat, for the three hinge groups); convergence_report.csv
+  - multi_ll_pars_*.npz        maximum-likelihood sample of every (group, model) pair; compute_metrics.py
+                               rebuilds the whole BIC table from these files alone
+  - _mac* and _mac_treat*      figures of the mechanistic T-M-C model
+  - TMC/                       identifiability: profile likelihoods, Fisher information, structural
+                               identifiability, experimental design
+
+The MCMC chains (multi_chain_*.gz) and the resumable backends (*.h5) are in the Zenodo deposit, not here
+(see the repository README). Without them compute_metrics.py still computes BIC and the BIC weights, and
+reports DIC, p_D and WBIC as nan.
+
+The chain figures of the 16 empirical models are not published; they are reproduced by global.py.

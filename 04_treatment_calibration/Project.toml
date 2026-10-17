@@ -1,0 +1,10 @@
+# Environment of the structural identifiability scripts (structural_id.jl,
+# structural_id_pipeline.jl). The version recorded here is the one whose verdicts are
+# reported in the thesis; Manifest.toml pins the whole dependency tree, as resolved
+# under Julia 1.12.6. Run the scripts from this directory, they activate it themselves.
+[deps]
+StructuralIdentifiability = "220ca800-aa68-49bb-acd8-6037fa93a544"
+
+[compat]
+StructuralIdentifiability = "=0.5.25"
+julia = "1.10"

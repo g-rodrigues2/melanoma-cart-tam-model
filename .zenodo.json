@@ -1,0 +1,25 @@
+{
+  "title": "Melanoma under CAR T-cell therapy with TAM-mediated immunosuppression: model analysis, Bayesian calibration and identifiability (code and data)",
+  "upload_type": "software",
+  "license": "mit-license",
+  "creators": [
+    {
+      "name": "Rodrigues, Guilherme",
+      "affiliation": "São Paulo State University (UNESP), Institute of Biosciences, Botucatu, Brazil"
+    }
+  ],
+  "description": "<p>Code and data of Chapter 3 of the doctoral thesis <em>Mathematical models to describe tumoral behaviors under treatment regimens</em> (Graduate Program in Biometrics, Institute of Biosciences, S&atilde;o Paulo State University, Botucatu, 2026).</p><p>The deposit covers a three-population ordinary differential equation model of cutaneous melanoma under CAR T-cell therapy with tumor-associated macrophages: its equilibria and local asymptotic stability, the Hopf bifurcation driven by the pro-tumoral action of the macrophages, a variance-based global sensitivity analysis (eFAST), the Bayesian calibration against the immunocompetent B16 data of Jilani et al. (2024), the structural identifiability analysis with StructuralIdentifiability.jl, the profile-likelihood analysis of practical identifiability, the Fisher-information comparison of experimental designs, and the computational scenarios built on the calibrated model.</p><p>Each folder has a README with its structure, and REPRODUCE.md gives the command that produces each figure and table of the chapter. The MCMC chains are deposited separately because of their size.</p>",
+  "keywords": [
+    "mathematical oncology",
+    "CAR T-cell therapy",
+    "melanoma",
+    "tumor-associated macrophages",
+    "Bayesian calibration",
+    "parameter identifiability",
+    "Hopf bifurcation",
+    "global sensitivity analysis",
+    "ordinary differential equations"
+  ],
+  "language": "eng",
+  "access_right": "open"
+}

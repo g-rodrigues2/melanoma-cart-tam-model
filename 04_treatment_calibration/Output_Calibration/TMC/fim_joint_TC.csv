@@ -1,0 +1,3 @@
+param,std_T,std_T_plus_C,reduction_factor,scale
+mu1,0.06148,0.05776,1.1,linear
+log10_beta1,0.06809,0.06504,1.0,log10

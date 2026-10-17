@@ -1,0 +1,38 @@
+================================================================================================
+eFAST RANKING AGAINST THE HORIZON (design of efast_sensitivity.py, output T at each time)
+================================================================================================
+  100000 samples, p = 10, N = 10000, M = 4, seed = 123
+  E* unstable (oscillatory attractor) in 47.9% of the samples
+
+    day  decades     CV  % at K1   ST(beta1)  top 5 by ST                                   
+     60     2.15   1.19      0.0      0.0026  alpha1, alpha3, mu1, kappa3, K3               
+    100     2.05   0.98      0.0      0.0185  alpha3, alpha1, kappa3, mu1, K1               
+    150     2.06   0.87      0.0      0.0780  alpha3, alpha1, kappa3, mu1, K1               
+    200     2.07   0.82      0.0      0.2008  alpha3, kappa3, alpha1, mu1, K1               
+    300     2.22   0.75      0.0      0.5480  kappa3, alpha3, K1, alpha1, mu1               
+    400     2.31   0.71      0.0      0.6822  alpha3, alpha1, kappa3, K1, alpha2            
+
+  at 400 days the top five by ST are, on Y     : alpha3, alpha1, kappa3, K1, alpha2
+                                     and on log Y : alpha3, kappa3, alpha1, alpha2, K1
+  the two lists hold the same five parameters: True
+
+  first-order and total-effect indices at the two ends
+  parameter     S1 60d    ST 60d   S1 400d   ST 400d
+  alpha3        0.0475    0.7068    0.0362    0.8686
+  alpha1        0.1599    0.8835    0.0012    0.8665
+  kappa3        0.0426    0.1266    0.0264    0.8250
+  K1            0.0013    0.0182    0.0055    0.7578
+  alpha2        0.0000    0.0013    0.0001    0.7413
+  K2            0.0002    0.0031    0.0026    0.7083
+  K3            0.0080    0.0333    0.0085    0.6994
+  mu1           0.0036    0.1577    0.0003    0.6848
+  beta1         0.0001    0.0026    0.0034    0.6822
+  kappa2        0.0000    0.0033    0.0006    0.6614
+  sum of S1: 0.263 at 60 days, 0.085 at 400 days
+  sum of ST: 1.936 at 60 days, 7.495 at 400 days
+
+  relative excursion of T between days 300 and 400, by attractor
+    stable E*   median 0.426
+    unstable E* median 0.776
+
+  total time 89 s

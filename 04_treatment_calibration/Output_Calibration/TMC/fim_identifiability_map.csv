@@ -1,0 +1,25 @@
+group,param,MLE,std_marginal,scale,marginal_uncertainty
+cart_ss_b16,log10_alpha1,0.33779,0.03256,log10,0.0326 decades
+cart_ss_b16,log10_K1,6162.2,0.07515,log10,0.0751 decades
+cart_ss_b16,log10_beta1,1e-06,3.994,log10,3.99 decades
+cart_ss_b16,mu1,0.049907,0.04253,linear,0.852 relative
+cart_ss_b16,alpha3,4.9484,1.996,linear,0.403 relative
+cart_ss_b16,K3,73.743,3.994,linear,0.0542 relative
+cart_ss_b16,kappa3,0.62891,0.9226,linear,1.47 relative
+cart_ss_b16,mu3,0.019738,0.001914,linear,0.0969 relative
+cart_sm_b16,log10_alpha1,0.25723,0.1326,log10,0.133 decades
+cart_sm_b16,log10_K1,4859.4,0.1096,log10,0.11 decades
+cart_sm_b16,log10_beta1,0.00037687,0.5743,log10,0.574 decades
+cart_sm_b16,mu1,0.017559,0.01496,linear,0.852 relative
+cart_sm_b16,alpha3,4.9395,0.6959,linear,0.141 relative
+cart_sm_b16,K3,76.907,3.584,linear,0.0466 relative
+cart_sm_b16,kappa3,1.5015,0.2802,linear,0.187 relative
+cart_sm_b16,mu3,0.008015,0.0004725,linear,0.059 relative
+cart_sl_b16,log10_alpha1,0.10368,0.0749,log10,0.0749 decades
+cart_sl_b16,log10_K1,3041.9,0.03506,log10,0.0351 decades
+cart_sl_b16,log10_beta1,0.0031596,0.06809,log10,0.0681 decades
+cart_sl_b16,mu1,0.37496,0.06148,linear,0.164 relative
+cart_sl_b16,alpha3,4.2982,0.1767,linear,0.0411 relative
+cart_sl_b16,K3,835.76,0.5771,linear,0.00069 relative
+cart_sl_b16,kappa3,0.21173,0.03345,linear,0.158 relative
+cart_sl_b16,mu3,0.0029107,2.408e-06,linear,0.000827 relative

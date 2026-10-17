@@ -1,0 +1,74 @@
+==============================================================================
+eFAST OVER THE UNCERTAINTY DECLARED IN TABLE 3.1
+==============================================================================
+  samples 110000 = N 10000 x p 11, harmonic order M = 4, seed 123
+  beta1 sampled in [1.000e-11, 2.999e-06] cells^-1 (5.5 decades)
+  integration of 110000 trajectories: 77 s
+  verification against odeint (rtol 1e-12), 60 samples: worst relative difference 2.59e-06
+
+  output spread at t = 60
+  output        minimum      maximum  decades      CV  % within 1% of K1
+  T(60)      2.8730e-97   1.2000e+09   105.62   0.597               72.9
+  M(60)      5.5789e-05   1.1975e+09    13.33   0.489                nan
+  C(60)     3.7297e-140   2.5552e+10   149.84  13.680                nan
+
+  first-order and total-effect indices at t = 60
+
+  --- T(60) ---
+  parameter           S1   S1_conf        ST   ST_conf  ST (log Y)
+  kappa3          0.4438    0.0018    0.7774    0.0135      0.7745
+  log10_beta1     0.0690    0.0018    0.3691    0.0122      0.6515
+  mu3             0.0750    0.0015    0.2945    0.0139      0.8303
+  K1              0.0413    0.0017    0.1981    0.0137      0.5061
+  alpha3          0.0076    0.0017    0.1683    0.0135      0.4445
+  kappa2          0.0001    0.0017    0.1599    0.0145      0.4001
+  mu1             0.0001    0.0015    0.1560    0.0131      0.4655
+  K3              0.0012    0.0015    0.1545    0.0118      0.3743
+  K2              0.0001    0.0017    0.1536    0.0128      0.3814
+  alpha1          0.0001    0.0012    0.1522    0.0150      0.4158
+  alpha2          0.0005    0.0016    0.1449    0.0146      0.4290
+  sum S1 = 0.639   sum ST = 2.729
+  top 5 by ST, Y      : kappa3, log10_beta1, mu3, K1, alpha3
+  top 5 by ST, log Y  : mu3, kappa3, log10_beta1, K1, mu1
+  the two agree: False
+
+  --- M(60) ---
+  parameter           S1   S1_conf        ST   ST_conf  ST (log Y)
+  kappa3          0.5784    0.0016    0.8524    0.0139      0.9529
+  log10_beta1     0.0303    0.0017    0.2687    0.0138      0.2412
+  mu3             0.0263    0.0014    0.2197    0.0135      0.1837
+  K2              0.0581    0.0019    0.2110    0.0126      0.1622
+  kappa2          0.0011    0.0017    0.1529    0.0150      0.1958
+  alpha3          0.0052    0.0016    0.1508    0.0131      0.1654
+  alpha1          0.0001    0.0015    0.1506    0.0127      0.1573
+  K3              0.0016    0.0016    0.1447    0.0122      0.1642
+  mu1             0.0001    0.0015    0.1341    0.0129      0.1631
+  K1              0.0001    0.0017    0.1323    0.0142      0.1471
+  alpha2          0.0010    0.0014    0.1243    0.0145      0.1638
+  sum S1 = 0.702   sum ST = 2.541
+  top 5 by ST, Y      : kappa3, log10_beta1, mu3, K2, kappa2
+  top 5 by ST, log Y  : kappa3, log10_beta1, kappa2, mu3, alpha3
+  the two agree: False
+
+  --- C(60) ---
+  parameter           S1   S1_conf        ST   ST_conf  ST (log Y)
+  mu3             0.0271    0.0016    0.8786    0.0091      0.6582
+  log10_beta1     0.0198    0.0015    0.8605    0.0115      0.1221
+  kappa3          0.0055    0.0018    0.7176    0.0109      0.4066
+  alpha1          0.0012    0.0013    0.6555    0.0100      0.0231
+  mu1             0.0024    0.0016    0.6335    0.0134      0.0281
+  K1              0.0009    0.0016    0.6245    0.0126      0.0551
+  kappa2          0.0003    0.0016    0.6170    0.0146      0.0327
+  K2              0.0005    0.0019    0.5877    0.0151      0.0299
+  K3              0.0008    0.0014    0.5724    0.0123      0.0328
+  alpha3          0.0007    0.0013    0.5482    0.0090      0.0397
+  alpha2          0.0005    0.0017    0.5389    0.0131      0.0340
+  sum S1 = 0.060   sum ST = 7.234
+  top 5 by ST, Y      : mu3, log10_beta1, kappa3, alpha1, mu1
+  top 5 by ST, log Y  : mu3, kappa3, log10_beta1, K1, alpha3
+  the two agree: False
+
+  time-dependent indices
+  written for T, M and C at 50 times
+
+  total time 89 s
