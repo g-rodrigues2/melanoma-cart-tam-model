@@ -7,6 +7,7 @@ authors:
   - family-names: Rodrigues
     given-names: Guilherme
     affiliation: "São Paulo State University (UNESP), Institute of Biosciences, Botucatu"
+repository-code: "https://github.com/g-rodrigues2/melanoma-cart-tam-model"
 abstract: >-
   Code and data of Chapter 3 of the doctoral thesis: a three-population ordinary differential equation
   model of cutaneous melanoma under CAR T-cell therapy with tumor-associated macrophages, its equilibria
