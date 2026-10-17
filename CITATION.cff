@@ -7,6 +7,7 @@ authors:
   - family-names: Rodrigues
     given-names: Guilherme
     affiliation: "São Paulo State University (UNESP), Institute of Biosciences, Botucatu"
+    orcid: "https://orcid.org/0000-0001-7113-8937"
 repository-code: "https://github.com/g-rodrigues2/melanoma-cart-tam-model"
 abstract: >-
   Code and data of Chapter 3 of the doctoral thesis: a three-population ordinary differential equation
@@ -30,6 +31,7 @@ preferred-citation:
   authors:
     - family-names: Rodrigues
       given-names: Guilherme
+      orcid: "https://orcid.org/0000-0001-7113-8937"
   thesis-type: "PhD thesis"
   institution:
     name: "São Paulo State University (UNESP), Graduate Program in Biometrics"
