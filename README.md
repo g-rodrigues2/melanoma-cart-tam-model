@@ -1,6 +1,14 @@
 # Mathematical modeling of melanoma dynamics with TAM-mediated immunosuppression and CAR T-cell therapy
 
-Code and data for **Chapter 3** of the thesis. The chapter studies the model
+All the code and data in this repository are part of the doctoral thesis
+
+> G. Rodrigues, *Mathematical models to describe tumoral behaviors under treatment regimens*,
+> Graduate Program in Biometrics, Institute of Biosciences, São Paulo State University (UNESP),
+> Botucatu, 2026. Advisor: P. F. A. Mancera. Co-advisor: E. A. B. F. Lima.
+
+and correspond to its **Chapter 3**, *Mathematical modeling of melanoma dynamics with TAM-mediated
+immunosuppression and CAR T-cell therapy*, whose code, data and results are deposited here in full.
+The chapter studies the model
 
 ```
 dT/dt = α1 T (1 − T/K1)(1 + β1 M) − μ1 C T
