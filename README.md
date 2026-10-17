@@ -1,5 +1,7 @@
 # Mathematical modeling of melanoma dynamics with TAM-mediated immunosuppression and CAR T-cell therapy
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23440962.svg)](https://doi.org/10.5281/zenodo.23440962)
+
 All the code and data in this repository are part of the doctoral thesis
 
 > G. Rodrigues, *Mathematical models to describe tumoral behaviors under treatment regimens*,
@@ -155,4 +157,6 @@ The code is released under the MIT License (see `LICENSE`). If you use it, pleas
 the thesis and the article in which the model was first published; the three citations are in
 `CITATION.cff`.
 
-<!-- After the first Zenodo release, paste the DOI badge of the record on the line below. -->
+The deposit is archived on Zenodo under the concept DOI
+[10.5281/zenodo.23440962](https://doi.org/10.5281/zenodo.23440962), which always resolves to the latest
+version.
