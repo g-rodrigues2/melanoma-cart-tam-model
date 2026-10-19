@@ -1,6 +1,6 @@
 # Mathematical modeling of melanoma dynamics with TAM-mediated immunosuppression and CAR T-cell therapy
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23440962.svg)](https://doi.org/10.5281/zenodo.23440962)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23440961.svg)](https://doi.org/10.5281/zenodo.23440961)
 
 All the code and data in this repository are part of the doctoral thesis
 
