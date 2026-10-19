@@ -24,17 +24,10 @@ plt.rcParams.update(STYLE)
 plt.rcParams.update({'axes.labelsize': 15, 'xtick.labelsize': 13, 'ytick.labelsize': 13,
                      'legend.fontsize': 12})
 
-def _chains_folder():
-    here = os.path.dirname(os.path.abspath(__file__))
-    for candidate in (os.path.join(here, '..', '..', 'chains', '04_treatment_calibration'),
-                      os.path.join(here, '..', '..', '..', 'zenodo_deposit', 'melanoma_chains',
-                                   '04_treatment_calibration')):
-        if os.path.isdir(candidate):
-            return candidate
-    return os.path.join(here, '..', '..', 'chains', '04_treatment_calibration')
-
-
-DEPOSIT = os.environ.get('MELANOMA_CHAINS', _chains_folder())
+DEPOSIT = os.environ.get(
+    'MELANOMA_CHAINS',
+    os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'chains',
+                 '04_treatment_calibration'))
 
 SELECTED = {'cart_ss_b16': '_exp', 'cart_sm_b16': '_exp', 'cart_sl_b16': '_exp_EDwithSin'}
 GROUPS = ['cart_ss_b16', 'cart_sm_b16', 'cart_sl_b16']

@@ -23,7 +23,7 @@ def check(name, cond, det=""):
 a1, K1, mu1 = 0.69, 1e9, 1e-7
 a2, K2, k2 = 1e-7, 1e9, 0.34
 K3, a3 = 2e7, 0.9
-T0, M0, C0 = 2e6, 1e6, 1e7          # condicao inicial da Tabela 3.1 (C(0) = 1e7 do intervalo)
+T0, M0, C0 = 2e6, 1e6, 1e7          # initial condition of Table 3.1 (C(0) = 1e7, from the interval)
 
 print("=" * 78)
 print("BLOCK 14  -  Proposition P7: alpha1_til, T_til*, Omega and the kappa_3 interval")

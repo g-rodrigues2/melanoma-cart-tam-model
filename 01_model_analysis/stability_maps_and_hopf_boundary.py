@@ -232,7 +232,7 @@ def diagram_k3_b1():
 
     B1_TOP = 1e-5          # the upper branch rises above 1e-6 near k3_c1
     B1_BOT = 1e-12
-    B1_MAX_TAB = 3e-6      # teto de beta1 na Tabela 3.1
+    B1_MAX_TAB = 3e-6      # upper bound of beta1 in Table 3.1
 
     # kappa3^(1): sign change of the leading coefficient of Q, a quadratic polynomial in beta1 (second
     # difference with a wide step, to avoid cancellation). It separates a simple threshold (unstable for

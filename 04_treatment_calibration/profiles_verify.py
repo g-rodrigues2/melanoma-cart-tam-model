@@ -92,10 +92,10 @@ def main():
     for r in summ:
         if r['model'] == MODEL and r['group'] == GROUP:
             grid, lls, _ = prof[r['parameter']]
-            llm, lo, hi, cont = interval(grid, lls)
-            r.update(argmax=f'{grid[int(np.argmax(lls))]:.4f}', ll_max=f'{llm:.3f}', CI95_lo=f'{lo:.4f}',
-                     CI95_hi=f'{hi:.4f}', CI_contiguous=int(cont), drop_lower_edge=f'{llm - lls[0]:.3f}',
-                     drop_upper_edge=f'{llm - lls[-1]:.3f}', non_monotone_points=non_monotone(lls))
+            llmax, lo, hi, cont = interval(grid, lls)
+            r.update(argmax=f'{grid[int(np.argmax(lls))]:.4f}', ll_max=f'{llmax:.3f}', CI95_lo=f'{lo:.4f}',
+                     CI95_hi=f'{hi:.4f}', CI_contiguous=int(cont), drop_lower_edge=f'{llmax - lls[0]:.3f}',
+                     drop_upper_edge=f'{llmax - lls[-1]:.3f}', non_monotone_points=non_monotone(lls))
             print(r, flush=True)
     with open(os.path.join(TMC, 'profile_bounded_summary.csv'), 'w', newline='') as f:
         w = csv.DictWriter(f, fieldnames=list(summ[0].keys()))

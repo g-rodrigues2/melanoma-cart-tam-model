@@ -3,7 +3,12 @@ message: "If you use this code or data, please cite the deposit below, the thesi
 title: "Melanoma under CAR T-cell therapy with TAM-mediated immunosuppression: model analysis, Bayesian calibration and identifiability (code and data)"
 type: software
 license: MIT
+version: 1.0.0
 doi: 10.5281/zenodo.23440962
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.23440961
+    description: "Concept DOI, which resolves to the latest version of the deposit"
 authors:
   - family-names: Rodrigues
     given-names: Guilherme

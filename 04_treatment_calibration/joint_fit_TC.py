@@ -137,8 +137,8 @@ def profile(param_idx, joint):
                     prof[i] = -r.fun; warm[i] = np.clip(r.x, lb[free]+eps, ub[free]-eps); imp = True
         if not imp:
             break
-    llm = np.nanmax(prof)
-    within = np.isfinite(prof) & (prof >= llm-LR)
+    llmax = np.nanmax(prof)
+    within = np.isfinite(prof) & (prof >= llmax-LR)
     gg = 10**grid if is_log else grid
     lo, hi = gg[within].min(), gg[within].max()
     frac = within.sum()/np.isfinite(prof).sum()
