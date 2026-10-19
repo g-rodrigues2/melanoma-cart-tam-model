@@ -17,15 +17,23 @@ plt.rcParams.update({
     'legend.fontsize': 10, 'axes.linewidth': 1.0,
 })
 
-BACKEND = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'reinitiate_files',
-                       'reinitiate_cart_sl_b16_mac_treat.h5')
-if not os.path.exists(BACKEND):
-    raise SystemExit(
-        f"{BACKEND} not found. This figure reads the _mac_treat backend of the long-hinge group, "
-        "which is distributed in the Zenodo deposit and not in this repository (see the repository README).")
+HERE = os.path.dirname(os.path.abspath(__file__))
+BACKEND = os.path.join(HERE, '..', 'reinitiate_files', 'reinitiate_cart_sl_b16_mac_treat.h5')
+CHAIN = os.path.join(HERE, '..', '..', 'chains', '04_treatment_calibration',
+                     'reinitiate_cart_sl_b16_mac_treat.npz')
 
-b = emcee.backends.HDFBackend(BACKEND, read_only=True)
-tau_full = b.get_autocorr_time(tol=0)[:8]  # the 8 model parameters only
+if os.path.exists(BACKEND):
+    tau_full = emcee.backends.HDFBackend(BACKEND, read_only=True).get_autocorr_time(tol=0)[:8]
+elif os.path.exists(CHAIN):
+    # the thinned chain of chains/ gives the same autocorrelation times to within 0.1 per cent, the
+    # thinning being two orders of magnitude below tau
+    z = np.load(CHAIN, allow_pickle=False)
+    tau_full = emcee.autocorr.integrated_time(z['chain'][:, :, :8], tol=0) * int(z['thin'])
+else:
+    raise SystemExit(
+        f"neither {BACKEND} nor {CHAIN} found. This figure reads the _mac_treat chain of the long-hinge "
+        "group, either from the resumable backend of a calibration or from the chains that travel with "
+        "this repository.")
 
 labels = [r'$\log_{10}\alpha_1$', r'$\log_{10}K_1$', r'$\log_{10}\beta_1$',
           r'$\mu_1$', r'$\alpha_3$', r'$K_3$', r'$\kappa_3$', r'$\mu_3$']

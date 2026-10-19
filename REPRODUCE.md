@@ -6,8 +6,8 @@ chapter to its section, folder and script; this file gives the commands, in the 
 Every command runs from the folder of its step. Figures are written with the file names used in the thesis
 (`Figuras/cap3_melanoma/`). Steps 1, 2 and Scenarios 1–6 need no calibration output; the other analyses read the
 maximum-likelihood files and profile solutions included in the repository (see the step READMEs). The MCMC chains of
-the selected models are in the data deposit (see the repository README); the only step that needs them is
-`figures_thesis/plot_tau_comparison.py`.
+the selected models are in `chains/`, and the two commands that need them, `plot_appendix_chains.py` and
+`plot_tau_comparison.py`, read them from there.
 
 ## Step 1 — mathematical analysis (`01_model_analysis`, outputs in `figures/`)
 
@@ -56,7 +56,7 @@ the selected models are in the data deposit (see the repository README); the onl
 | Calibrated models against the data | `python figures_thesis/plot_model_vs_data.py` | `jilani_model_vs_data.png` |
 | Mechanistic models against the data | `python figures_thesis/plot_mechanistic_vs_data.py` | `jilani_mechanistic_vs_data.png` |
 | Table of the candidate treatment models (appendix) | `python figures_thesis/make_model_table.py` | `model_table_cap3.tex` |
-| Chains of the selected models (appendix) | `python figures_thesis/plot_appendix_chains.py` (set `MELANOMA_CHAINS` to the folder of the deposit) | `chains_selected_models.png` |
+| Chains of the selected models (appendix) | `python figures_thesis/plot_appendix_chains.py` | `chains_selected_models.png` |
 | Scaling symmetry of `β1`, `M(0)`, `K2` | `python figures_thesis/plot_symmetry_demo.py` | `structural_symmetry_demo.png` |
 | Structural identifiability | `julia structural_id.jl`, `julia structural_id_pipeline.jl` (both activate the pinned environment of that directory), `python structural_identifiability.py` | `Output_Calibration/TMC/structural_identifiability_julia.txt` (the four runs reported in the thesis), printed report |
 | Bounded maximum-likelihood estimates and profile likelihoods | `python mle_bounded.py`, `python profiles_bounded.py` (about 7 h), then `python figures_thesis/plot_profile_likelihoods.py` | `profile_likelihoods.png` |
@@ -65,7 +65,7 @@ the selected models are in the data deposit (see the repository README); the onl
 | Fisher information spectrum | `python fim_identifiability_map.py` then `python figures_thesis/plot_fim_spectrum.py` | `fim_eigenvalue_spectrum.png` |
 | Persistence data and joint Fisher information | `python fim_joint_TC.py`, `python fim_joint_TM.py` | `fim_joint_TC.csv`, `fim_joint_TM.csv` |
 | In silico experimental design | `python experimental_design.py` (writes `experimental_design.csv` and the diagnostic `experimental_design_diagnostic.png`) then `python figures_thesis/plot_experimental_design.py` | `experimental_design_beta1.png` |
-| Minimal identifiable submodel and autocorrelation times | `python reduced_fit.py` then `python figures_thesis/plot_tau_comparison.py` (the only step that needs a file from the Zenodo deposit: the `_mac_treat` backend of the long-hinge group) | `tau_full_vs_reduced.png` |
+| Minimal identifiable submodel and autocorrelation times | `python reduced_fit.py` then `python figures_thesis/plot_tau_comparison.py` (reads the `_mac_treat` chain of the long-hinge group from `chains/`, or the resumable backend of a calibration when one is present) | `tau_full_vs_reduced.png` |
 
 ## Step 5 — computational scenarios (`05_computational_scenarios`, outputs in `figures/`)
 

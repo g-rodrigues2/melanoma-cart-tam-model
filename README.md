@@ -34,8 +34,9 @@ The folders follow the order of the chapter. Each one has a README listing its s
 | 5 | [`05_computational_scenarios/`](05_computational_scenarios/) | 3.5 | Scenarios 1–3 (literature parameters) and Scenarios 4–7 (data-calibrated rates and virtual experiments). |
 
 `notebooks/melanoma_CART_TAM.ipynb` is the exploratory notebook from which the scripts of steps 1, 2 and Scenarios 1–3
-were extracted; the scripts are the reference implementation. `export_chains.py` packs the MCMC chains of the
-selected models for the data deposit. The chains themselves are deposited separately because of their size; the DOI of that deposit is given in the description of this record.
+were extracted; the scripts are the reference implementation. The MCMC chains of the
+selected models are in [`chains/`](chains/), walker by walker, packed by `export_chains.py` from the HDF5
+backends of a calibration.
 
 Every number of Sections 3.3.1–3.3.2 and of Appendix A that entered the thesis is recomputed by the
 `verify_*.py` sweeps of step 1, by a route independent of the scripts that drew the figures; they run in the test
@@ -158,5 +159,5 @@ the thesis and the article in which the model was first published; the three cit
 `CITATION.cff`.
 
 The deposit is archived on Zenodo under the concept DOI
-[10.5281/zenodo.23440962](https://doi.org/10.5281/zenodo.23440962), which always resolves to the latest
+[10.5281/zenodo.23440961](https://doi.org/10.5281/zenodo.23440961), which always resolves to the latest
 version.

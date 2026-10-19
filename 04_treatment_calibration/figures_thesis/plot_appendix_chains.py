@@ -1,7 +1,7 @@
 """MCMC chains of the models selected in Chapter 3 (thesis appendix).
 
-Reads the chains of the Zenodo deposit (they are not in the code repository), whose location is given by
-the environment variable MELANOMA_CHAINS or by DEPOSIT below.
+Reads the chains of `chains/04_treatment_calibration`, which travel with the code. The environment
+variable MELANOMA_CHAINS overrides their location.
 
   chains_selected_models.png  walker traces of the free parameters of the model selected by BIC in each
                               group: the residual standard deviation of the three (top row) and the three
@@ -24,10 +24,17 @@ plt.rcParams.update(STYLE)
 plt.rcParams.update({'axes.labelsize': 15, 'xtick.labelsize': 13, 'ytick.labelsize': 13,
                      'legend.fontsize': 12})
 
-DEPOSIT = os.environ.get(
-    'MELANOMA_CHAINS',
-    os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', '..',
-                 'zenodo_deposit', 'melanoma_chains', '04_treatment_calibration'))
+def _chains_folder():
+    here = os.path.dirname(os.path.abspath(__file__))
+    for candidate in (os.path.join(here, '..', '..', 'chains', '04_treatment_calibration'),
+                      os.path.join(here, '..', '..', '..', 'zenodo_deposit', 'melanoma_chains',
+                                   '04_treatment_calibration')):
+        if os.path.isdir(candidate):
+            return candidate
+    return os.path.join(here, '..', '..', 'chains', '04_treatment_calibration')
+
+
+DEPOSIT = os.environ.get('MELANOMA_CHAINS', _chains_folder())
 
 SELECTED = {'cart_ss_b16': '_exp', 'cart_sm_b16': '_exp', 'cart_sl_b16': '_exp_EDwithSin'}
 GROUPS = ['cart_ss_b16', 'cart_sm_b16', 'cart_sl_b16']
@@ -40,7 +47,7 @@ def load(group, model):
     path = os.path.join(DEPOSIT, f'reinitiate_{group}{model}.npz')
     if not os.path.exists(path):
         raise SystemExit(f'chain file not found: {path}\n'
-                         'set MELANOMA_CHAINS to the folder of the deposit.')
+                         'set MELANOMA_CHAINS to the folder holding the chains.')
     z = np.load(path, allow_pickle=True)
     return z['chain'], z['log_prob'], int(z['thin']), int(z['burn_in'])
 

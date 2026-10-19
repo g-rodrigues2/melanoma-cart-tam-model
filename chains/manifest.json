@@ -1,0 +1,58 @@
+[
+ {
+  "file": "03_growth_model_selection/reinitiate__exp_s1.npz",
+  "steps": 30000,
+  "thin": 20,
+  "walkers": 196,
+  "parameters": 49,
+  "megabytes": 52.9
+ },
+ {
+  "file": "04_treatment_calibration/reinitiate_cart_ss_b16_exp.npz",
+  "steps": 200000,
+  "thin": 40,
+  "walkers": 54,
+  "parameters": 9,
+  "megabytes": 9.5
+ },
+ {
+  "file": "04_treatment_calibration/reinitiate_cart_sm_b16_exp.npz",
+  "steps": 200000,
+  "thin": 40,
+  "walkers": 48,
+  "parameters": 8,
+  "megabytes": 7.5
+ },
+ {
+  "file": "04_treatment_calibration/reinitiate_cart_sl_b16_exp_EDwithSin.npz",
+  "steps": 200000,
+  "thin": 40,
+  "walkers": 72,
+  "parameters": 12,
+  "megabytes": 16.9
+ },
+ {
+  "file": "04_treatment_calibration/reinitiate_cart_ss_b16_mac_treat.npz",
+  "steps": 200000,
+  "thin": 40,
+  "walkers": 102,
+  "parameters": 17,
+  "megabytes": 30.3
+ },
+ {
+  "file": "04_treatment_calibration/reinitiate_cart_sm_b16_mac_treat.npz",
+  "steps": 200000,
+  "thin": 40,
+  "walkers": 96,
+  "parameters": 16,
+  "megabytes": 27.2
+ },
+ {
+  "file": "04_treatment_calibration/reinitiate_cart_sl_b16_mac_treat.npz",
+  "steps": 200000,
+  "thin": 40,
+  "walkers": 102,
+  "parameters": 17,
+  "megabytes": 28.4
+ }
+]

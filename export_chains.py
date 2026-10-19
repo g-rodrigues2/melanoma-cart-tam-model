@@ -11,7 +11,8 @@ Each HDF5 backend becomes one compressed file
     <out>/<step folder>/<backend name>.npz
         chain       (steps/thin, walkers, parameters) float32, every `thin`-th step
         log_prob    (steps/thin, walkers) float32
-        thin        thinning interval (10, or larger for chains above 50,000 steps: at most ~5,000 stored steps)
+        thin        thinning interval, the largest of 10, the value that keeps at most ~5,000 stored
+                    steps, and the value that keeps the stored arrays under 90 MiB
         n_steps     number of steps of the original chain
         burn_in     first quarter of the steps, in original steps
 
@@ -43,10 +44,16 @@ CHAINS = [
 ]
 
 
+MAX_BYTES = 90 * 1024 ** 2   # a file in the repository must stay below 100 MiB
+
+
 def export(rel, out):
     backend = emcee.backends.HDFBackend(os.path.join(HERE, *rel.split('/')), read_only=True)
     steps = int(backend.iteration)
+    walkers, ndim = backend.shape
     thin = max(10, steps // 5000)
+    while 4 * (steps // thin) * walkers * (ndim + 1) > MAX_BYTES:
+        thin *= 2            # wide chains need the thinning the stored size asks for, not only the step count
     chain = backend.get_chain(thin=thin).astype(np.float32)
     log_prob = backend.get_log_prob(thin=thin).astype(np.float32)
     target = os.path.join(out, rel.split('/')[0], os.path.basename(rel).replace('.h5', '.npz'))
