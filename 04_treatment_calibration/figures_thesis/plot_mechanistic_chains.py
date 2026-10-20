@@ -11,9 +11,10 @@ shown as traces rather than described. Two figures are written.
 
   jilani_tmc_chain_full.png  the same run with one panel per model parameter, for the appendix.
 
-Input: the emcee backend of the run, reinitiate_files/reinitiate_cart_sl_b16_mac_treat.h5, which is
-not published with the repository (the chains are distributed separately), and the bounded estimate
-Output_Calibration/TMC/mle_bounded_cart_sl_b16.npz.
+Input: the chain of the run, read from the resumable backend
+reinitiate_files/reinitiate_cart_sl_b16_mac_treat.h5 when a calibration is at hand and otherwise from
+chains/04_treatment_calibration/reinitiate_cart_sl_b16_mac_treat.npz, which travels with the code, and
+the bounded estimate Output_Calibration/TMC/mle_bounded_cart_sl_b16.npz.
 """
 import os
 import sys
@@ -33,6 +34,8 @@ plt.rcParams.update({'axes.labelsize': 16, 'xtick.labelsize': 14, 'ytick.labelsi
 
 GROUP = 'cart_sl_b16'
 BACKEND = os.path.join(CALIBRATION_DIR, 'reinitiate_files', f'reinitiate_{GROUP}_mac_treat.h5')
+EXPORTED = os.path.join(os.path.dirname(CALIBRATION_DIR), 'chains', '04_treatment_calibration',
+                        f'reinitiate_{GROUP}_mac_treat.npz')
 MLE = os.path.join(CALIBRATION_DIR, 'Output_Calibration', 'TMC', f'mle_bounded_{GROUP}.npz')
 COL_WALK, COL_MLE = '#6f6f6f', '#c0392b'
 THIN, N_WALKERS = 400, 45
@@ -52,13 +55,21 @@ PARAMS = [
 
 
 def load():
-    if not os.path.exists(BACKEND):
-        sys.exit(f'{BACKEND} not found. This figure reads the _mac_treat backend of the long-hinge '
-                 'group, which is distributed separately from the repository.')
-    b = emcee.backends.HDFBackend(BACKEND, read_only=True)
-    chain, logp = b.get_chain(thin=THIN), b.get_log_prob(thin=THIN)
-    n_steps = b.get_chain().shape[0]
-    accept = float(np.mean(b.accepted)) / n_steps
+    if os.path.exists(BACKEND):
+        b = emcee.backends.HDFBackend(BACKEND, read_only=True)
+        chain, logp = b.get_chain(thin=THIN), b.get_log_prob(thin=THIN)
+        n_steps = b.get_chain().shape[0]
+        accept = float(np.mean(b.accepted)) / n_steps
+    elif os.path.exists(EXPORTED):
+        e = np.load(EXPORTED, allow_pickle=False)
+        stride = max(1, THIN // int(e['thin']))
+        chain, logp = e['chain'][::stride], e['log_prob'][::stride]
+        n_steps = int(e['n_steps'])
+        accept = float(np.mean(e['accepted'])) / n_steps if 'accepted' in e.files else float('nan')
+    else:
+        sys.exit(f'neither {BACKEND} nor {EXPORTED} found. This figure reads the _mac_treat chain of '
+                 'the long-hinge group, from a calibration of this repository or from the chains that '
+                 'travel with it.')
     z = np.load(MLE, allow_pickle=True)
     steps = np.arange(chain.shape[0]) * THIN / 1.0e4          # in units of 10^4 steps
     return chain[:, :N_WALKERS, :], logp[:, :N_WALKERS], steps, np.asarray(z['theta'], float), float(z['ll']), accept

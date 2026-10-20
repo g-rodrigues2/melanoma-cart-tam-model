@@ -15,6 +15,7 @@ Each HDF5 backend becomes one compressed file
                     steps, and the value that keeps the stored arrays under 90 MiB
         n_steps     number of steps of the original chain
         burn_in     first quarter of the steps, in original steps
+        accepted    (walkers,) proposals accepted by each walker over the whole chain
 
 The chains are read with the thinning applied inside the HDF5 file, so long chains never reach memory in full.
 Read a file with `read_exported_chain`.
@@ -58,7 +59,8 @@ def export(rel, out):
     log_prob = backend.get_log_prob(thin=thin).astype(np.float32)
     target = os.path.join(out, rel.split('/')[0], os.path.basename(rel).replace('.h5', '.npz'))
     os.makedirs(os.path.dirname(target), exist_ok=True)
-    np.savez_compressed(target, chain=chain, log_prob=log_prob, thin=thin, n_steps=steps, burn_in=steps // 4)
+    np.savez_compressed(target, chain=chain, log_prob=log_prob, thin=thin, n_steps=steps,
+                        burn_in=steps // 4, accepted=np.asarray(backend.accepted))
     return dict(file=os.path.relpath(target, out).replace('\\', '/'), steps=steps, thin=thin,
                 walkers=int(chain.shape[1]), parameters=int(chain.shape[2]),
                 megabytes=round(os.path.getsize(target) / 1e6, 1))

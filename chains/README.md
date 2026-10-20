@@ -23,6 +23,7 @@ Each file is a compressed NumPy archive, read by `read_exported_chain` in `expor
 | `thin` | thinning interval |
 | `n_steps` | number of steps of the original chain |
 | `burn_in` | burn-in used in the thesis (first quarter of the steps), in original steps |
+| `accepted` | (walkers,) proposals accepted by each walker over the whole chain |
 
 The parameter order is that of the calibration code (`bounds*.py` of each step). The posterior samples used
 in the thesis are `chain[burn_in // thin:]`. The thinning is the largest of ten, the value that keeps at
